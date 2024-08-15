@@ -1,4 +1,4 @@
-package com.ivoronline.multitenant.tenant.config;
+package com.ivoronline.tenant.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -22,7 +22,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-  basePackages            = "com.ivoronline.multitenant.tenant.repository",
+  basePackages            = "com.ivoronline.tenant.repository",
   entityManagerFactoryRef = "tenantEntityManager",
   transactionManagerRef   = "tenantTransactionManager"
 )
@@ -31,7 +31,7 @@ public class TenantConfig {
   //PROPERTIES
   public static Map<Object, Object> targetDataSources = new HashMap<>();
   public static TenantDataSource    tenantDataSource  = new TenantDataSource();
-  private final String              ENTITY_PACKAGE    = "com.ivoronline.multitenant.tenant.entity";
+  private final String              ENTITY_PACKAGE    = "com.ivoronline.tenant.entity";
   
   //=========================================================================================================
   // DEFAULT DATA SOURCE
@@ -39,7 +39,7 @@ public class TenantConfig {
   @Primary
   @Lazy
   @Bean
-  @ConfigurationProperties("default.spring.datasource")
+  @ConfigurationProperties("master.spring.datasource")
   public DataSource defaultDataSource() {
     return DataSourceBuilder.create().type(HikariDataSource.class).build();
   }

@@ -1,4 +1,4 @@
-package com.ivoronline.multitenant.tenant.config;
+package com.ivoronline.tenant.config;
 
 public class TenantContext {
 

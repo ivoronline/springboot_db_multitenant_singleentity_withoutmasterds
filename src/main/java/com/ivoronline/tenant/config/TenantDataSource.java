@@ -1,4 +1,4 @@
-package com.ivoronline.multitenant.tenant.config;
+package com.ivoronline.tenant.config;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
